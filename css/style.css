@@ -1,0 +1,32 @@
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.task-section {
+  background-color: #ffe4c4;
+  padding: 30px 10px 20px 10px;
+  margin-bottom: 10px;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+.task {
+  margin-bottom: 10px;
+}
+
+.check {
+  display: block;
+}
