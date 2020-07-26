@@ -147,6 +147,22 @@ function alphabetPosition(text) {
     .join(" ");
 }
 
+const stringFilter = (value) => typeof value === "string";
+
+const positiveNumberFilter = function (value) {};
+const nonEmptyArrayFilter = function (value) {};
+
+const customFilter = (...args) => {
+  const result = [];
+};
+
+const Counter = (initial = 0) => {
+  let counter = initial;
+  return () => {
+    return counter++;
+  };
+};
+
 runBtn.addEventListener("click", () => {
   // console.log("someFunction");
   // console.log(sortString("4of Fo1r pe6ople g3ood th5e the2"));
@@ -171,6 +187,24 @@ runBtn.addEventListener("click", () => {
   // console.log(arrayDiff([-16,-13,-17,19,-11,-2,0,2,12,7,5,-15,-12,5,0,14,2],[-11,19,12,-12,2,-15]));
   // console.log(arrayDiff([18,10,17,-15,7,-6,7,2,6],[7,17]));
   // console.log(arrayDiff([6,20,9,5,19,15,19,8,-12],[5,9,-12,6,15]));
-  console.log(alphabetPosition("The sunset sets at twelve o' clock."));
-  console.log(alphabetPosition("The narwhal bacons at midnight."));
+  // console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+  // console.log(alphabetPosition("The narwhal bacons at midnight."));
+  console.log(customFilter(1, 2, 3, "4", 5, undefined, "string"));
+  console.log(customFilter(1, 2, 3, "4", 5, undefined, "string", stringFilter)); // ["string", "4"]
+  console.log(
+    customFilter(1, 2, 3, "4", 5, -5, undefined, "string", positiveNumberFilter)
+  ); // [1, 2, 3, 5]
+  console.log(
+    customFilter(
+      1,
+      2,
+      "string",
+      undefined,
+      [1],
+      [],
+      [112, 1234],
+      [],
+      nonEmptyArrayFilter
+    )
+  ); // [[1], [112, 1234]]
 });
